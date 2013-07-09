@@ -1,0 +1,15 @@
+- @stream.data.each do |data|
+  .media
+    a.pull-left href="#"
+      = image_tag(data.user.avatar_image.url, class: 'media-object', width: '64')
+      span= data.user.username
+    .media-body
+      = data.html.html_safe
+      hr
+      h5 Links
+      ul
+        - data.entities.links.each do |link|
+          = link_to "#{link.text}/POS:#{link.pos}/LEN:#{link.len}", link.url, target: '_blank'
+      h5 Mensions count: #{data.entities.mentions.count}
+      - data.entities.hashtags.each do |tag|
+        label.label= "#{tag.name}/#{tag.pos}/#{tag.pos}"
