@@ -1,0 +1,20 @@
+<div class="stream" ng-controller="StreamCtrl">
+  <div class="media" ng-repeat="stream in streams">
+    <a href="#" class="pull-left">
+      <img class="media-object" ng-src='{{stream.user.avatar_image.url}}' width='64'/>
+      {{stream.user.username}}
+    </a>
+    <div class="media-body">
+      <div>{{stream.text}}</div>
+      <hr></hr>
+      <h5>Links</h5>
+      <ul>
+        <li ng-repeat='link in stream.entities.links'>
+          <a href='link.url'>{{link.text}}</a>
+        </li>
+      </ul>
+      <h5>Mensions Count: {{stream.entities.mentions.count}}</h5>
+      <label class="label" ng-repeat='tag in stream.entities.hashtags'>{{tag.name}}</label>
+    </div>
+  </div>
+</div>
