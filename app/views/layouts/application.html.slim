@@ -6,5 +6,5 @@ html lang='en' ng-app='Stream'
     = csrf_meta_tags
   body
     .container
-      = yield
+      <ng-view></ng-view>
     = javascript_include_tag "application", "data-turbolinks-track" => true
